@@ -34,9 +34,9 @@ Below is a detailed representation of the service dependencies, network bindings
 
 ```mermaid
 graph TD
-    User([Browser Client]) -->|Port 3000| Frontend[React Nginx Container]
-    Frontend -->|REST API Requests| Backend[FastAPI Uvicorn Container]
-    Backend -->|Port 8000| Swagger[Swagger Docs /docs]
+    User([Browser Client]) -->|1. Pulls Static Assets / Port 3000| Frontend[React Nginx Container]
+    User -->|2. Makes REST API Requests / Port 8000| Backend[FastAPI Uvicorn Container]
+    Backend -->|Serves /docs| Swagger[Swagger Docs]
     Backend -->|SQLAlchemy / Port 5432| DB[(PostgreSQL Database)]
     
     subgraph Containerized Orchestration
