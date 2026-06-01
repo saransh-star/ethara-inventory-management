@@ -190,7 +190,7 @@ export default function OrderCreate({ customers, products, onSubmitOrder, onCanc
                       onClick={() => handleRemoveItem(index)}
                       disabled={items.length === 1}
                       title="Remove item"
-                      style={{ height: '2.6rem', width: '2.6rem' }}
+                      style={{ height: '2.8rem', width: '2.8rem', transform: 'translateY(-3px)' }}
                     >
                       <Trash2 size={16} />
                     </button>
