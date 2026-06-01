@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # ==================== POSTGRESQL DATABASE SERVICE ====================
+  db:
+    image: postgres:15-alpine
+    container_name: ethara-postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_NAME:-inventory}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-postgres} -d $${POSTGRES_DB:-inventory}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ==================== FASTAPI PYTHON BACKEND API ====================
+  backend:
+    build:
+      context: ./backend
+    container_name: ethara-fastapi-backend
+    restart: always
+    environment:
+      DATABASE_URL: postgresql://${DB_USER:-postgres}:${DB_PASSWORD:-postgres}@db:5432/${DB_NAME:-inventory}
+      CORS_ORIGINS: ${CORS_ORIGINS:-*}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # ==================== REACT NGINX FRONTEND SERVICE ====================
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:8000}
+    container_name: ethara-react-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+    name: ethara_postgres_data
