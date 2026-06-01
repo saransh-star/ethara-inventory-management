@@ -100,7 +100,7 @@ export default function OrderCreate({ customers, products, onSubmitOrder, onCanc
         </div>
       </div>
 
-      <div className="panel" style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <div className="panel" style={{ maxWidth: '1000px', margin: '0 auto' }}>
         {error && (
           <div className="tag tag-danger" style={{ display: 'block', width: '100%', marginBottom: '1.5rem', borderRadius: '0.5rem', padding: '0.75rem', textTransform: 'none' }}>
             ⚠️ {error}
