@@ -668,10 +668,12 @@ h1, h2, h3, h4, h5, h6 {
   align-items: flex-end;
   margin-bottom: 1rem;
   animation: slideInDown 0.2s ease-out;
+  width: 100%;
 }
 
 .order-item-row .form-group {
   margin-bottom: 0 !important; /* Override standard form-group margin */
+  min-width: 0; /* Allow columns to shrink dynamically and prevent flex overflow */
 }
 
 .order-item-row .form-group:nth-child(1) {
@@ -694,7 +696,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   padding: 0;
-  margin-bottom: 2px; /* Visual baseline alignment correction */
+  margin-bottom: 0; /* Align perfectly with input baselines */
 }
 
 @media (max-width: 640px) {
