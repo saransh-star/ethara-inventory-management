@@ -4,6 +4,18 @@ Welcome to the **Production-Ready Containerized Inventory & Order Management Sys
 
 ---
 
+## 🌐 Live Production Environment
+
+For candidate evaluation, the entire full-stack application has been successfully deployed and containerized:
+
+* **Live Frontend Portal:** [https://ethara-inventory-management-seven.vercel.app/](https://ethara-inventory-management-seven.vercel.app/)
+* **Live Backend Swagger API Docs:** [https://ethara-backend-lrvw.onrender.com/docs](https://ethara-backend-lrvw.onrender.com/docs)
+* **Live Backend Root API Endpoint:** [https://ethara-backend-lrvw.onrender.com/](https://ethara-backend-lrvw.onrender.com/)
+* **Backend Docker Hub Container Image:** [saransh90/ethara-backend:latest](https://hub.docker.com/r/saransh90/ethara-backend)
+* **GitHub Codebase Repository:** [https://github.com/saransh-star/ethara-inventory-management](https://github.com/saransh-star/ethara-inventory-management)
+
+---
+
 ## 🌟 Key Features
 
 - **Product Catalog Management:** Complete CRUD capabilities, enforced SKU uniqueness, real-time inventory count checks, and price tracking.
@@ -89,7 +101,7 @@ Ensure you have **Docker** and **Docker Compose** installed on your host system.
 
 1. **Clone the Repository:**
    ```bash
-   git clone <repository_link>
+   git clone https://github.com/saransh-star/ethara-inventory-management.git
    cd ethara.ai
    ```
 
