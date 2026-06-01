@@ -182,16 +182,19 @@ export default function OrderCreate({ customers, products, onSubmitOrder, onCanc
                   </div>
 
                   {/* Remove action */}
-                  <button
-                    type="button"
-                    className="btn btn-danger btn-icon"
-                    onClick={() => handleRemoveItem(index)}
-                    disabled={items.length === 1}
-                    title="Remove item"
-                    style={{ height: '2.6rem' }}
-                  >
-                    <Trash2 size={14} />
-                  </button>
+                  <div className="form-group" style={{ margin: 0 }}>
+                    <label className="form-label" style={{ visibility: 'hidden' }}>Delete</label>
+                    <button
+                      type="button"
+                      className="btn btn-danger btn-icon"
+                      onClick={() => handleRemoveItem(index)}
+                      disabled={items.length === 1}
+                      title="Remove item"
+                      style={{ height: '2.6rem', width: '2.6rem' }}
+                    >
+                      <Trash2 size={16} />
+                    </button>
+                  </div>
                 </div>
               );
             })}
